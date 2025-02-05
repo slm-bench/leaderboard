@@ -3,28 +3,35 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-
+    
+permissions:
+  contents: write
+    
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
           
       - name: Install dependencies
         run: npm install
         
+      # Thêm bước build CSS
+      - name: Build CSS
+        run: npm run build:css # Nếu bạn có script riêng cho CSS
+        
       - name: Build project
         run: npm run build
         
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
           folder: out
+          branch: gh-pages
           token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}

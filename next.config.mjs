@@ -5,6 +5,10 @@ const nextConfig = {
         unoptimized: true,
     },
     basePath: '/leaderboard',
+    webpack: (config) => {
+        config.resolve.preferRelative = true;
+        return config;
+    },
     images: {
         remotePatterns: [
             {
