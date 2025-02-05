@@ -129,63 +129,137 @@ const modelData: ModelData[] = [
 
 const AccuracyTableSection = () => {
     return (
-        <section className="container">
+        <section style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "2rem 1rem"
+        }}>
             {/* Header */}
-            <div className="header">
-                <div className="header-left">
-                    <CarIcon className="icon" />
-                    <h2 className="title">Accuracy Table</h2>
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginBottom: "1.5rem"
+            }}>
+                <div style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem"
+                }}>
+                    <CarIcon style={{
+                        width: "1.5rem",
+                        height: "1.5rem"
+                    }} />
+                    <h2 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700"
+                    }}>Accuracy Table</h2>
                 </div>
-                <button className="view-all-button">
+                <button style={{
+                    color: "#2563eb",
+                    fontWeight: "500"
+                }}>
                     View All
                 </button>
             </div>
 
             {/* Description */}
-            <p className="description">
+            <p style={{
+                color: "#4b5563",
+                marginBottom: "1.5rem"
+            }}>
                 The evaluation results of small LM (whose parameters size 6B).
             </p>
 
             {/* Notes Section */}
-            <div className="notes-section">
-                <h3 className="notes-header">
-                    <span className="notes-icon">ℹ️</span>
+            <div style={{
+                backgroundColor: "#f9fafb",
+                borderRadius: "0.5rem",
+                padding: "1rem",
+                marginBottom: "1.5rem"
+            }}>
+                <h3 style={{
+                    fontWeight: "600",
+                    marginBottom: "0.5rem",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem"
+                }}>
+                    <span style={{
+                        width: "1.25rem",
+                        height: "1.25rem",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}>ℹ️</span>
                     Notes
                 </h3>
-                <div className="notes-content">
-                    <p>Experiment Details:</p>
-                    <ul className="notes-list">
-                        <li className="notes-list-item">
+                <div style={{
+                    fontSize: "0.875rem",
+                    color: "#4b5563"
+                }}>
+                    <p style={{ marginLeft: "1.75rem" }}>Experiment Details:</p>
+                    <ul style={{
+                        marginLeft: "1.75rem",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "0.5rem"
+                    }}>
+                        <li style={{
+                            display: "flex",
+                            gap: "0.5rem"
+                        }}>
                             <span>🎯</span>
                             <span>
                                 <strong>Commonsense reasoning Accuracy</strong> is the average of hellaswag,truthfulqa_mc2,winogrande,commonsense_qa,piqa,openbookqa,boolq.
                             </span>
                         </li>
-                        <li className="notes-list-item">
+                        <li style={{
+                            display: "flex",
+                            gap: "0.5rem"
+                        }}>
                             <span>🧩</span>
                             <span>
                                 <strong>Problem solving</strong> is the average of arc_easy,arc_challenge,mmlu.
                             </span>
                         </li>
-                        <li className="notes-list-item">
+                        <li style={{
+                            display: "flex",
+                            gap: "0.5rem"
+                        }}>
                             <span>🔢</span>
                             <span>
                                 <strong>Math</strong> is the average of gsm8k,minerva_math.
                             </span>
                         </li>
-                        <li className="notes-list-item">
+                        <li style={{
+                            display: "flex",
+                            gap: "0.5rem"
+                        }}>
                             <span>🔄</span>
                             <span>
-                                Performance Metrics are tested with <code className="code-inline">lm-evaluation-harness</code> library.Math part is tested with <code className="code-inline">math-evaluation-harness</code>.
+                                Performance Metrics are tested with <code style={{
+                                    backgroundColor: "#f3f4f6",
+                                    padding: "0 0.25rem"
+                                }}>lm-evaluation-harness</code> library.Math part is tested with <code style={{
+                                    backgroundColor: "#f3f4f6",
+                                    padding: "0 0.25rem"
+                                }}>math-evaluation-harness</code>.
                             </span>
                         </li>
-                        <li className="notes-list-item">
+                        <li style={{
+                            display: "flex",
+                            gap: "0.5rem"
+                        }}>
                             <span>📝</span>
                             <span>
                                 Icons: 👑 for base model, 💎 for Instruct finetuned model.
                             </span>
                         </li>
-                        <li className="notes-list-item">
+                        <li style={{
+                            display: "flex",
+                            gap: "0.5rem"
+                        }}>
                             <span>⚠️</span>
                             <span>
                                 Some of the items are not available due to the lack of source of information or to be filled.
@@ -196,38 +270,99 @@ const AccuracyTableSection = () => {
             </div>
 
             {/* Table */}
-            <div className="table-container">
-                <table>
+            <div style={{ overflowX: "auto" }}>
+                <table style={{
+                    width: "100%",
+                    minWidth: "1000px",
+                    borderCollapse: "collapse"
+                }}>
                     <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                            <th>Release Date</th>
-                            <th>Affiliation</th>
-                            <th>Context Window</th>
-                            <th>Training Tok</th>
-                            <th>Commonsense reasoning</th>
-                            <th>Problem solving</th>
-                            <th>Math</th>
+                        <tr style={{ backgroundColor: "#f9fafb" }}>
+                            <th style={{
+                                padding: "0.75rem 1rem",
+                                textAlign: "left",
+                                fontWeight: "500",
+                                color: "#4b5563"
+                            }}>Name</th>
+                            <th style={{
+                                padding: "0.75rem 1rem",
+                                textAlign: "left",
+                                fontWeight: "500",
+                                color: "#4b5563"
+                            }}>Parameters</th>
+                            <th style={{
+                                padding: "0.75rem 1rem",
+                                textAlign: "left",
+                                fontWeight: "500",
+                                color: "#4b5563"
+                            }}>Release Date</th>
+                            <th style={{
+                                padding: "0.75rem 1rem",
+                                textAlign: "left",
+                                fontWeight: "500",
+                                color: "#4b5563"
+                            }}>Affiliation</th>
+                            <th style={{
+                                padding: "0.75rem 1rem",
+                                textAlign: "left",
+                                fontWeight: "500",
+                                color: "#4b5563"
+                            }}>Context Window</th>
+                            <th style={{
+                                padding: "0.75rem 1rem",
+                                textAlign: "left",
+                                fontWeight: "500",
+                                color: "#4b5563"
+                            }}>Training Tok</th>
+                            <th style={{
+                                padding: "0.75rem 1rem",
+                                textAlign: "left",
+                                fontWeight: "500",
+                                color: "#4b5563"
+                            }}>Commonsense reasoning</th>
+                            <th style={{
+                                padding: "0.75rem 1rem",
+                                textAlign: "left",
+                                fontWeight: "500",
+                                color: "#4b5563"
+                            }}>Problem solving</th>
+                            <th style={{
+                                padding: "0.75rem 1rem",
+                                textAlign: "left",
+                                fontWeight: "500",
+                                color: "#4b5563"
+                            }}>Math</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style={{ borderTop: "1px solid #e5e7eb" }}>
                         {modelData.map((model, index) => (
-                            <tr key={index}>
-                                <td>
-                                    <div className="model-name-cell">
-                                        <span className="model-icon">👑</span>
-                                        <span className="model-link">{model.name}</span>
+                            <tr key={index} style={{
+                                borderBottom: "1px solid #e5e7eb",
+                            }}>
+                                <td style={{ padding: "0.75rem 1rem" }}>
+                                    <div style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "0.5rem"
+                                    }}>
+                                        <span style={{
+                                            width: "1.25rem",
+                                            height: "1.25rem"
+                                        }}>👑</span>
+                                        <span style={{
+                                            color: "#2563eb",
+                                            textDecoration: "none",
+                                        }}>{model.name}</span>
                                     </div>
                                 </td>
-                                <td>{model.parameters}</td>
-                                <td>{model.releaseDate}</td>
-                                <td>{model.affiliation}</td>
-                                <td>{model.contextWindow}</td>
-                                <td>{model.trainingTok}</td>
-                                <td>{model.commonsenseReasoning.toFixed(4)}</td>
-                                <td>{model.problemSolving.toFixed(4)}</td>
-                                <td>{model.math.toFixed(4)}</td>
+                                <td style={{ padding: "0.75rem 1rem" }}>{model.parameters}</td>
+                                <td style={{ padding: "0.75rem 1rem" }}>{model.releaseDate}</td>
+                                <td style={{ padding: "0.75rem 1rem" }}>{model.affiliation}</td>
+                                <td style={{ padding: "0.75rem 1rem" }}>{model.contextWindow}</td>
+                                <td style={{ padding: "0.75rem 1rem" }}>{model.trainingTok}</td>
+                                <td style={{ padding: "0.75rem 1rem" }}>{model.commonsenseReasoning.toFixed(4)}</td>
+                                <td style={{ padding: "0.75rem 1rem" }}>{model.problemSolving.toFixed(4)}</td>
+                                <td style={{ padding: "0.75rem 1rem" }}>{model.math.toFixed(4)}</td>
                             </tr>
                         ))}
                     </tbody>
