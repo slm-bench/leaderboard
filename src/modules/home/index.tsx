@@ -8,43 +8,139 @@ import DataAnalysisSection from './data';
 
 export default function HomeClient() {
   return (
-    <div className="w-full h-screen">
-      <div className="min-h-screen bg-dot-pattern">
-        <section className="container mx-auto px-4 py-12">
-          <div className="flex flex-col items-center text-center space-y-6">
-            <div className="relative flex justify-center items-center gap-4">
-              <h1 className="text-6xl font-bold text-gray-400 opacity-20">Small Language Models</h1>
-              <div className="flex items-center justify-center">
-                <Crown className="w-12 h-12 text-yellow-400" />
+    <div style={{
+      width: "100%",
+      height: "100vh"
+    }}>
+      <div style={{
+        minHeight: "100vh",
+        backgroundImage: "radial-gradient(circle at center, #000000 1px, transparent 1px)",
+        backgroundSize: "20px 20px"
+      }}>
+        <section style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "3rem 1rem"
+        }}>
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            gap: "1.5rem"
+          }}>
+            <div style={{
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "1rem"
+            }}>
+              <h1 style={{
+                fontSize: "3.75rem",
+                fontWeight: "700",
+                color: "#9ca3af",
+                opacity: "0.2"
+              }}>Small Language Models</h1>
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
+                <Crown style={{
+                  width: "3rem",
+                  height: "3rem",
+                  color: "#facc15"
+                }} />
               </div>
             </div>
-            <div className="space-y-4">
-              <h2 className="text-4xl font-bold">
+
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem"
+            }}>
+              <h2 style={{
+                fontSize: "2.25rem",
+                fontWeight: "700"
+              }}>
                 All we know about
               </h2>
-              <h3 className="text-3xl font-bold">
+              <h3 style={{
+                fontSize: "1.875rem",
+                fontWeight: "700"
+              }}>
                 Small LLMs
               </h3>
-              <div className="bg-gradient-to-r from-blue-200 to-purple-200 px-6 py-2 rounded-lg">
-                <span className="text-2xl font-bold text-gray-800">
+              <div style={{
+                background: "linear-gradient(to right, #bfdbfe, #e9d5ff)",
+                padding: "0.5rem 1.5rem",
+                borderRadius: "0.5rem"
+              }}>
+                <span style={{
+                  fontSize: "1.5rem",
+                  fontWeight: "700",
+                  color: "#1f2937"
+                }}>
                   on Edge Devices
                 </span>
               </div>
             </div>
-            <p className="text-lg text-gray-600 uppercase tracking-wider">
+
+            <p style={{
+              fontSize: "1.125rem",
+              color: "#4b5563",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em"
+            }}>
               Survey, Measurements, and Insights
             </p>
-            <div className="flex gap-4 mt-8">
-              <Button variant="outline" className="flex items-center gap-2">
-                <span className="w-5 h-5">📊</span>
+
+            <div style={{
+              display: "flex",
+              gap: "1rem",
+              marginTop: "2rem"
+            }}>
+              <Button
+                variant="outline"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem"
+                }}
+              >
+                <span style={{
+                  width: "1.25rem",
+                  height: "1.25rem"
+                }}>📊</span>
                 Accuracy
               </Button>
-              <Button variant="default" className="flex items-center gap-2">
-                <span className="w-5 h-5">💰</span>
+              <Button
+                variant="default"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem"
+                }}
+              >
+                <span style={{
+                  width: "1.25rem",
+                  height: "1.25rem"
+                }}>💰</span>
                 Cost on Device
               </Button>
-              <Button variant="outline" className="flex items-center gap-2">
-                <span className="w-5 h-5">📄</span>
+              <Button
+                variant="outline"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem"
+                }}
+              >
+                <span style={{
+                  width: "1.25rem",
+                  height: "1.25rem"
+                }}>📄</span>
                 Paper
               </Button>
             </div>
