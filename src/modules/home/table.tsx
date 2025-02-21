@@ -1,368 +1,416 @@
 import React from 'react';
-import { CarIcon } from 'lucide-react';
 
-interface ModelData {
-    name: string;
-    parameters: string;
-    releaseDate: string;
-    affiliation: string;
-    contextWindow: number;
-    trainingTok: string;
-    commonsenseReasoning: number;
-    problemSolving: number;
-    math: number;
-}
-
-const modelData: ModelData[] = [
+const modelData = [
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
+        name: "GPT-Neo-1.3B",
+        provider: "EleutherAI",
+        license: "Apache 2.0",
+        parameters: "1.37B",
         contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        trainingTime: "10 days (32 GPUs)",
+        size: "2.46GB",
+        throughput: "1500",
+        latency: "50",
+        gold: 75,
+        silver: 60,
+        bronze: 45
     },
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
-        contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        name: "Zephyr-7B",
+        provider: "Hugging Face",
+        license: "Apache 2.0",
+        parameters: "7.00B",
+        contextWindow: 8192,
+        trainingTime: "20 days (64 GPUs)",
+        size: "13.74GB",
+        throughput: "1300",
+        latency: "52",
+        gold: 70,
+        silver: 55,
+        bronze: 40
     },
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
+        name: "Phi-1.5",
+        provider: "Microsoft",
+        license: "Proprietary",
+        parameters: "2.70B",
         contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        trainingTime: "12 days (32 GPUs)",
+        size: "2.45GB",
+        throughput: "1400",
+        latency: "52",
+        gold: 65,
+        silver: 50,
+        bronze: 35
     },
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
-        contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        name: "Mistral-7B",
+        provider: "Mistral AI",
+        license: "Apache 2.0",
+        parameters: "7.00B",
+        contextWindow: 8192,
+        trainingTime: "15 days (128 GPUs)",
+        size: "13.0GB",
+        throughput: "1400",
+        latency: "55",
+        gold: 60,
+        silver: 45,
+        bronze: 30
     },
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
+        name: "ShearedLlama-2.7B",
+        provider: "Hugging Face",
+        license: "Apache 2.0",
+        parameters: "2.70B",
         contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        trainingTime: "12 days (32 GPUs)",
+        size: "5.0GB",
+        throughput: "1300",
+        latency: "54",
+        gold: 55,
+        silver: 40,
+        bronze: 25
     },
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
+        name: "StableLM-3B",
+        provider: "Stability AI",
+        license: "Apache 2.0",
+        parameters: "3.00B",
         contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        trainingTime: "14 days (64 GPUs)",
+        size: "6.5GB",
+        throughput: "1250",
+        latency: "50",
+        gold: 50,
+        silver: 35,
+        bronze: 20
     },
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
+        name: "Pythia-2.8B",
+        provider: "EleutherAI",
+        license: "Apache 2.0",
+        parameters: "2.80B",
         contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        trainingTime: "12 days (32 GPUs)",
+        size: "5.5GB",
+        throughput: "1350",
+        latency: "50",
+        gold: 45,
+        silver: 30,
+        bronze: 15
     },
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
+        name: "TinyLlama-1.1B",
+        provider: "Hugging Face",
+        license: "Apache 2.0",
+        parameters: "1.10B",
         contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        trainingTime: "8 days (16 GPUs)",
+        size: "2.0GB",
+        throughput: "1600",
+        latency: "45",
+        gold: 40,
+        silver: 25,
+        bronze: 10
     },
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
-        contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        name: "LLaMA-2-7B",
+        provider: "Meta",
+        license: "LLAMA 2 L",
+        parameters: "6.47B",
+        contextWindow: 4096,
+        trainingTime: "21 days (64 GPUs)",
+        size: "13.0GB",
+        throughput: "1200",
+        latency: "62",
+        gold: 35,
+        silver: 20,
+        bronze: 5
     },
     {
-        name: "facebook/opt-125m",
-        parameters: "125M",
-        releaseDate: "2022.05",
-        affiliation: "Facebook",
-        contextWindow: 2048,
-        trainingTok: "180B Token Dataset",
-        commonsenseReasoning: 0.4033,
-        problemSolving: 0.2940,
-        math: 1.9000
+        name: "Open-LLaMA-3B",
+        provider: "OpenLM",
+        license: "Apache 2.0",
+        parameters: "3.00B",
+        contextWindow: 4096,
+        trainingTime: "18 days (64 GPUs)",
+        size: "6.8GB",
+        throughput: "1300",
+        latency: "60",
+        gold: 30,
+        silver: 15,
+        bronze: 0
     },
-    // Add more data as needed
+    {
+        name: "Gemma-2B",
+        provider: "Google",
+        license: "Proprietary",
+        parameters: "2.00B",
+        contextWindow: 2048,
+        trainingTime: "14 days (32 GPUs)",
+        size: "4.67GB",
+        throughput: "1450",
+        latency: "54",
+        gold: 25,
+        silver: 10,
+        bronze: 0
+    },
+    {
+        name: "Dolly-v2-3B",
+        provider: "DataBricks",
+        license: "Apache 2.0",
+        parameters: "3.00B",
+        contextWindow: 2048,
+        trainingTime: "10 days (32 GPUs)",
+        size: "5.8GB",
+        throughput: "1250",
+        latency: "55",
+        gold: 20,
+        silver: 5,
+        bronze: 0
+    },
+    {
+        name: "Zephyr-7B",
+        provider: "Hugging Face",
+        license: "Apache 2.0",
+        parameters: "7.00B",
+        contextWindow: 8192,
+        trainingTime: "20 days (64 GPUs)",
+        size: "13.74GB",
+        throughput: "1300",
+        latency: "52",
+        gold: 70,
+        silver: 58,
+        bronze: 42
+    },
+    {
+        name: "Phi-1.5",
+        provider: "Microsoft",
+        license: "Proprietary",
+        parameters: "2.70B",
+        contextWindow: 2048,
+        trainingTime: "12 days (32 GPUs)",
+        size: "2.45GB",
+        throughput: "1400",
+        latency: "52",
+        gold: 65,
+        silver: 55,
+        bronze: 40
+    },
+    {
+        name: "Mistral-7B",
+        provider: "Mistral AI",
+        license: "Apache 2.0",
+        parameters: "7.00B",
+        contextWindow: 8192,
+        trainingTime: "15 days (128 GPUs)",
+        size: "13.0GB",
+        throughput: "1400",
+        latency: "55",
+        gold: 60,
+        silver: 52,
+        bronze: 38
+    },
+    {
+        name: "ShearedLlama-2.7B",
+        provider: "Hugging Face",
+        license: "Apache 2.0",
+        parameters: "2.70B",
+        contextWindow: 2048,
+        trainingTime: "12 days (32 GPUs)",
+        size: "5.0GB",
+        throughput: "1300",
+        latency: "54",
+        gold: 55,
+        silver: 48,
+        bronze: 35
+    }
 ];
 
-const AccuracyTableSection = () => {
+const MedalTable = () => {
+    const styles = {
+        section: {
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '1.5rem'
+        } as React.CSSProperties,
+        header: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: '1rem'
+        } as React.CSSProperties,
+        headerTitle: {
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+        } as React.CSSProperties,
+        title: {
+            fontSize: '1.25rem',
+            fontWeight: 700
+        } as React.CSSProperties,
+        infoBox: {
+            backgroundColor: '#F9FAFB',
+            borderRadius: '0.5rem',
+            padding: '1rem',
+            marginBottom: '1.5rem'
+        } as React.CSSProperties,
+        infoTitle: {
+            fontWeight: 600,
+            marginBottom: '0.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+        } as React.CSSProperties,
+        icon: {
+            width: '1.25rem',
+            height: '1.25rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        } as React.CSSProperties,
+        infoList: {
+            fontSize: '0.875rem',
+            color: '#4B5563',
+            marginLeft: '1.75rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.5rem'
+        } as React.CSSProperties,
+        medalItem: {
+            display: 'flex',
+            gap: '0.5rem'
+        } as React.CSSProperties,
+        tableContainer: {
+            overflowX: 'auto'
+        } as React.CSSProperties,
+        table: {
+            width: '100%',
+            minWidth: '1000px'
+        } as React.CSSProperties,
+        thead: {
+            backgroundColor: '#F9FAFB'
+        } as React.CSSProperties,
+        th: {
+            padding: '0.75rem',
+            textAlign: 'left' as const,
+            color: '#4B5563',
+            fontWeight: 500
+        } as React.CSSProperties,
+        thCenter: {
+            padding: '0.75rem',
+            textAlign: 'center' as const,
+            color: '#4B5563',
+            fontWeight: 500
+        } as React.CSSProperties,
+        tbody: {
+            borderTop: '1px solid #E5E7EB'
+        } as React.CSSProperties,
+        tr: {
+            borderBottom: '1px solid #E5E7EB',
+            transition: 'background-color 0.2s'
+        } as React.CSSProperties,
+        trHover: {
+            backgroundColor: '#F9FAFB'
+        } as React.CSSProperties,
+        td: {
+            padding: '0.75rem'
+        } as React.CSSProperties,
+        tdCenter: {
+            padding: '0.75rem',
+            textAlign: 'center' as const
+        } as React.CSSProperties,
+        modelName: {
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+        } as React.CSSProperties,
+        modelNameText: {
+            color: '#2563EB'
+        } as React.CSSProperties,
+        medalCount: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.25rem'
+        } as React.CSSProperties
+    };
+
     return (
-        <section style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "2rem 1rem"
-        }}>
-            {/* Header */}
-            <div style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                marginBottom: "1.5rem"
-            }}>
-                <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem"
-                }}>
-                    <CarIcon style={{
-                        width: "1.5rem",
-                        height: "1.5rem"
-                    }} />
-                    <h2 style={{
-                        fontSize: "1.25rem",
-                        fontWeight: "700"
-                    }}>Accuracy Table</h2>
+        <section style={styles.section}>
+            <div style={styles.header}>
+                <div style={styles.headerTitle}>
+                    <h2 style={styles.title}>Model Performance Scoreboard</h2>
                 </div>
-                <button style={{
-                    color: "#2563eb",
-                    fontWeight: "500"
-                }}>
-                    View All
-                </button>
             </div>
 
-            {/* Description */}
-            <p style={{
-                color: "#4b5563",
-                marginBottom: "1.5rem"
-            }}>
-                The evaluation results of small LM (whose parameters size 6B).
-            </p>
-
-            {/* Notes Section */}
-            <div style={{
-                backgroundColor: "#f9fafb",
-                borderRadius: "0.5rem",
-                padding: "1rem",
-                marginBottom: "1.5rem"
-            }}>
-                <h3 style={{
-                    fontWeight: "600",
-                    marginBottom: "0.5rem",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem"
-                }}>
-                    <span style={{
-                        width: "1.25rem",
-                        height: "1.25rem",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }}>ℹ️</span>
-                    Notes
+            <div style={styles.infoBox}>
+                <h3 style={styles.infoTitle}>
+                    <span style={styles.icon}>ℹ️</span>
+                    Medal Distribution
                 </h3>
-                <div style={{
-                    fontSize: "0.875rem",
-                    color: "#4b5563"
-                }}>
-                    <p style={{ marginLeft: "1.75rem" }}>Experiment Details:</p>
-                    <ul style={{
-                        marginLeft: "1.75rem",
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "0.5rem"
-                    }}>
-                        <li style={{
-                            display: "flex",
-                            gap: "0.5rem"
-                        }}>
-                            <span>🎯</span>
-                            <span>
-                                <strong>Commonsense reasoning Accuracy</strong> is the average of hellaswag,truthfulqa_mc2,winogrande,commonsense_qa,piqa,openbookqa,boolq.
-                            </span>
+                <div style={styles.infoList}>
+                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                        <li style={styles.medalItem}>
+                            <span>🥇</span>
+                            <span><strong>Gold Medal</strong>: Outstanding performance across metrics</span>
                         </li>
-                        <li style={{
-                            display: "flex",
-                            gap: "0.5rem"
-                        }}>
-                            <span>🧩</span>
-                            <span>
-                                <strong>Problem solving</strong> is the average of arc_easy,arc_challenge,mmlu.
-                            </span>
+                        <li style={styles.medalItem}>
+                            <span>🥈</span>
+                            <span><strong>Silver Medal</strong>: Strong performance with good balance</span>
                         </li>
-                        <li style={{
-                            display: "flex",
-                            gap: "0.5rem"
-                        }}>
-                            <span>🔢</span>
-                            <span>
-                                <strong>Math</strong> is the average of gsm8k,minerva_math.
-                            </span>
-                        </li>
-                        <li style={{
-                            display: "flex",
-                            gap: "0.5rem"
-                        }}>
-                            <span>🔄</span>
-                            <span>
-                                Performance Metrics are tested with <code style={{
-                                    backgroundColor: "#f3f4f6",
-                                    padding: "0 0.25rem"
-                                }}>lm-evaluation-harness</code> library.Math part is tested with <code style={{
-                                    backgroundColor: "#f3f4f6",
-                                    padding: "0 0.25rem"
-                                }}>math-evaluation-harness</code>.
-                            </span>
-                        </li>
-                        <li style={{
-                            display: "flex",
-                            gap: "0.5rem"
-                        }}>
-                            <span>📝</span>
-                            <span>
-                                Icons: 👑 for base model, 💎 for Instruct finetuned model.
-                            </span>
-                        </li>
-                        <li style={{
-                            display: "flex",
-                            gap: "0.5rem"
-                        }}>
-                            <span>⚠️</span>
-                            <span>
-                                Some of the items are not available due to the lack of source of information or to be filled.
-                            </span>
+                        <li style={styles.medalItem}>
+                            <span>🥉</span>
+                            <span><strong>Bronze Medal</strong>: Solid baseline performance</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            {/* Table */}
-            <div style={{ overflowX: "auto" }}>
-                <table style={{
-                    width: "100%",
-                    minWidth: "1000px",
-                    borderCollapse: "collapse"
-                }}>
-                    <thead>
-                        <tr style={{ backgroundColor: "#f9fafb" }}>
-                            <th style={{
-                                padding: "0.75rem 1rem",
-                                textAlign: "left",
-                                fontWeight: "500",
-                                color: "#4b5563"
-                            }}>Name</th>
-                            <th style={{
-                                padding: "0.75rem 1rem",
-                                textAlign: "left",
-                                fontWeight: "500",
-                                color: "#4b5563"
-                            }}>Parameters</th>
-                            <th style={{
-                                padding: "0.75rem 1rem",
-                                textAlign: "left",
-                                fontWeight: "500",
-                                color: "#4b5563"
-                            }}>Release Date</th>
-                            <th style={{
-                                padding: "0.75rem 1rem",
-                                textAlign: "left",
-                                fontWeight: "500",
-                                color: "#4b5563"
-                            }}>Affiliation</th>
-                            <th style={{
-                                padding: "0.75rem 1rem",
-                                textAlign: "left",
-                                fontWeight: "500",
-                                color: "#4b5563"
-                            }}>Context Window</th>
-                            <th style={{
-                                padding: "0.75rem 1rem",
-                                textAlign: "left",
-                                fontWeight: "500",
-                                color: "#4b5563"
-                            }}>Training Tok</th>
-                            <th style={{
-                                padding: "0.75rem 1rem",
-                                textAlign: "left",
-                                fontWeight: "500",
-                                color: "#4b5563"
-                            }}>Commonsense reasoning</th>
-                            <th style={{
-                                padding: "0.75rem 1rem",
-                                textAlign: "left",
-                                fontWeight: "500",
-                                color: "#4b5563"
-                            }}>Problem solving</th>
-                            <th style={{
-                                padding: "0.75rem 1rem",
-                                textAlign: "left",
-                                fontWeight: "500",
-                                color: "#4b5563"
-                            }}>Math</th>
+            <div style={styles.tableContainer}>
+                <table style={styles.table}>
+                    <thead style={styles.thead}>
+                        <tr>
+                            <th style={styles.th}>Model</th>
+                            <th style={styles.th}>Provider</th>
+                            <th style={styles.th}>Parameters</th>
+                            <th style={styles.th}>Context Window</th>
+                            <th style={styles.th}>Training Time</th>
+                            <th style={styles.thCenter}>Gold Medals</th>
+                            <th style={styles.thCenter}>Silver Medals</th>
+                            <th style={styles.thCenter}>Bronze Medals</th>
                         </tr>
                     </thead>
-                    <tbody style={{ borderTop: "1px solid #e5e7eb" }}>
+                    <tbody style={styles.tbody}>
                         {modelData.map((model, index) => (
-                            <tr key={index} style={{
-                                borderBottom: "1px solid #e5e7eb",
-                            }}>
-                                <td style={{ padding: "0.75rem 1rem" }}>
-                                    <div style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "0.5rem"
-                                    }}>
-                                        <span style={{
-                                            width: "1.25rem",
-                                            height: "1.25rem"
-                                        }}>👑</span>
-                                        <span style={{
-                                            color: "#2563eb",
-                                            textDecoration: "none",
-                                        }}>{model.name}</span>
+                            <tr key={index} style={styles.tr}>
+                                <td style={styles.td}>
+                                    <div style={styles.modelName}>
+                                        <span style={styles.modelNameText}>{model.name}</span>
                                     </div>
                                 </td>
-                                <td style={{ padding: "0.75rem 1rem" }}>{model.parameters}</td>
-                                <td style={{ padding: "0.75rem 1rem" }}>{model.releaseDate}</td>
-                                <td style={{ padding: "0.75rem 1rem" }}>{model.affiliation}</td>
-                                <td style={{ padding: "0.75rem 1rem" }}>{model.contextWindow}</td>
-                                <td style={{ padding: "0.75rem 1rem" }}>{model.trainingTok}</td>
-                                <td style={{ padding: "0.75rem 1rem" }}>{model.commonsenseReasoning.toFixed(4)}</td>
-                                <td style={{ padding: "0.75rem 1rem" }}>{model.problemSolving.toFixed(4)}</td>
-                                <td style={{ padding: "0.75rem 1rem" }}>{model.math.toFixed(4)}</td>
+                                <td style={styles.td}>{model.provider}</td>
+                                <td style={styles.td}>{model.parameters}</td>
+                                <td style={styles.td}>{model.contextWindow}</td>
+                                <td style={styles.td}>{model.trainingTime}</td>
+                                <td style={styles.tdCenter}>
+                                    <div style={styles.medalCount}>
+                                        <span>🥇</span>
+                                        <span>{model.gold}</span>
+                                    </div>
+                                </td>
+                                <td style={styles.tdCenter}>
+                                    <div style={styles.medalCount}>
+                                        <span>🥈</span>
+                                        <span>{model.silver}</span>
+                                    </div>
+                                </td>
+                                <td style={styles.tdCenter}>
+                                    <div style={styles.medalCount}>
+                                        <span>🥉</span>
+                                        <span>{model.bronze}</span>
+                                    </div>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
@@ -372,4 +420,4 @@ const AccuracyTableSection = () => {
     );
 };
 
-export default AccuracyTableSection;
+export default MedalTable;

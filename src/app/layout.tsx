@@ -6,8 +6,8 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Small Language Models",
-  description: "Small Language Models Leaderboard"
+  title: "SLMs Bench",
+  description: "Benchmarking Fine-tuning Small Language Models with Various Datasets Tasks."
 };
 
 export default function RootLayout({

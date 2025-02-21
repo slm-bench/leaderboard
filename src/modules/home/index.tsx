@@ -3,7 +3,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Crown } from 'lucide-react';
-import AccuracyTable from './table';
+import MedalTable from './table';
 import DataAnalysisSection from './data';
 
 export default function HomeClient() {
@@ -14,7 +14,6 @@ export default function HomeClient() {
     }}>
       <div style={{
         minHeight: "100vh",
-        backgroundImage: "radial-gradient(circle at center, #000000 1px, transparent 1px)",
         backgroundSize: "20px 20px"
       }}>
         <section style={{
@@ -54,7 +53,6 @@ export default function HomeClient() {
                 }} />
               </div>
             </div>
-
             <div style={{
               display: "flex",
               flexDirection: "column",
@@ -86,7 +84,6 @@ export default function HomeClient() {
                 </span>
               </div>
             </div>
-
             <p style={{
               fontSize: "1.125rem",
               color: "#4b5563",
@@ -95,7 +92,6 @@ export default function HomeClient() {
             }}>
               Survey, Measurements, and Insights
             </p>
-
             <div style={{
               display: "flex",
               gap: "1rem",
@@ -116,7 +112,7 @@ export default function HomeClient() {
                 Accuracy
               </Button>
               <Button
-                variant="default"
+                variant="outline"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -146,7 +142,7 @@ export default function HomeClient() {
             </div>
           </div>
         </section>
-        <AccuracyTable />
+        <MedalTable />
         <DataAnalysisSection />
       </div>
     </div>
