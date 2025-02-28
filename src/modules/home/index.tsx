@@ -1,14 +1,24 @@
 "use client"
 
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function HomeClient() {
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center">
+    <div style={{
+      width: "100%",
+      height: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center"
+    }}>
       <iframe
         src={"https://www.ieltsviet.edu.vn/"}
         title="embedded"
-        className="w-full h-screen"
+        style={{
+          width: "100%",
+          height: "100vh"
+        }}
       />
     </div>
   )
