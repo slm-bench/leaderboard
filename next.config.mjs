@@ -5,6 +5,7 @@ const nextConfig = {
         unoptimized: true,
     },
     basePath: '/leaderboard',
+    assetPrefix: '/leaderboard',
     webpack: (config) => {
         config.resolve.preferRelative = true;
         return config;
