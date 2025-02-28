@@ -11,7 +11,7 @@ export default function HomeClient() {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      overflow: "hidden" // Prevents outer scrollbars
+      overflow: "hidden"
     }}>
       <iframe
         src={"https://slm-bench-leaderboard.vercel.app/"}
@@ -20,12 +20,11 @@ export default function HomeClient() {
         style={{
           width: "100%",
           height: "100vh",
-          border: "none", // Explicitly remove border
-          scrollbarWidth: "none", // Firefox
-          msOverflowStyle: "none", // IE and Edge
+          border: "none",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}
       />
-      {/* CSS to hide webkit scrollbars (Chrome, Safari) */}
       <style jsx global>{`
         iframe::-webkit-scrollbar {
           display: none;
