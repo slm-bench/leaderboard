@@ -13,7 +13,7 @@ export default function HomeClient() {
       justifyContent: "center"
     }}>
       <iframe
-        src={"https://www.ieltsviet.edu.vn/"}
+        src={"https://slm-bench-leaderboard.vercel.app/"}
         title="embedded"
         style={{
           width: "100%",
